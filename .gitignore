@@ -1,0 +1,8 @@
+# Ignorar archivos compilados de Java
+*.class
+
+# Ignorar archivos de BlueJ que no son código fuente
+*.ctxt
+*.pkg
+*.class
+*.ctxt
