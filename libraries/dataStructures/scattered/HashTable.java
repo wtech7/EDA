@@ -225,6 +225,29 @@ public class HashTable<K, V> implements Map<K, V> {
     @SuppressWarnings("unchecked")
     protected final void rehashing() {
         /* TO BE COMPLETED */
+        int oldSize = theArray.length;
+        int newSize = nextPrime(2*oldSize);
+        ListPOI<HashEntry<K,V>> [] oldArray = theArray;
+        theArray = new LinkedListPOI[newSize];
+        for(int i = 0 ; i< theArray.length ; i++ ){
+            theArray[i] = new LinkedListPOI<HashEntry<K,V>>();
+        }
+        size = 0;
+        
+        for(int i = 0; i<oldSize; i++){
+            if(oldArray[i] != null ) {
+                ListPOI<HashEntry<K,V>> list = oldArray[i];
+                list.begin();
+                while(!list.isEnd()){
+                    HashEntry<K,V> entry = list.get();
+                    K key = entry.key;
+                    V value = entry.value;
+                    put(key,value);
+                    list.next();
+                }
+            }
+        
+        }
     }
 
     // Methods to analyze the efficiency of a Linked Hash Table
