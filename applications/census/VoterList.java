@@ -1,4 +1,4 @@
-package aplicaciones.census;
+package applications.census;
 
 import libraries.dataStructures.models.ListPOI;
 import libraries.dataStructures.linear.LinkedListPOI;
@@ -95,6 +95,24 @@ public class VoterList {
         }
         return index;
         
+    }
+
+    public int deletePCCensus(int pc){
+    
+        int count = 0;
+        census.begin();
+        while(!census.isEnd()){
+            if(census.get().getPC() == pc){ 
+                census.remove();
+                count++;
+                size--;
+            }
+            else{
+                census.next();
+            }
+        
+        }
+        return count;
     }
 
 }

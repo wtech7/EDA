@@ -19,4 +19,6 @@ comment5.text=\ Returns\ a\ ListPOI\ with\ the\ terms\ of\ the\ Digital\ Library
 comment6.params=
 comment6.target=libraries.dataStructures.models.ListPOI\ hapax()
 comment6.text=\ Returns\ a\ ListPOI\ with\ the\ terms\ of\ the\ Digital\ Library's\ Index\ that\r\n\ \ appear\ only\ once\ in\ its\ books,\ i.e.,\ the\ so-called\ "hapax\ legomena"\r\n\ \ of\ the\ Digital\ Library,\ or\ null\ if\ none\ exist.\r\n
-numComments=7
+comment7.params=words
+comment7.target=libraries.dataStructures.models.Map\ unionPosting(libraries.dataStructures.models.ListPOI)
+numComments=8

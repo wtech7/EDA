@@ -1,4 +1,4 @@
-package aplicaciones.census;
+package applications.census;
 
 import java.util.Random;
 

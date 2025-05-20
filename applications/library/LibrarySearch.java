@@ -199,4 +199,35 @@ public class LibrarySearch {
         if(res.size() == 0) return null;
         return res;
     }
+    
+    public Map<String,ListPOI<Integer>> unionPosting (ListPOI<Term> words) {
+        Map<String,ListPOI<Integer>> res = new HashTable<>(22310);
+        for(words.begin() ; !words.isEnd() ; words.next()){
+            Term t = words.get();
+            ListPOI<Posting> postings = index.get(t);
+            if(postings != null){
+                for(postings.begin() ; !postings.isEnd() ; postings.next()){
+            
+                    Posting posting = postings.get();
+                    String bookTitle = posting.bookTitle;
+                    int lineNumber = posting.lineNumber;
+                    ListPOI<Integer> lines = res.get(bookTitle);
+                
+                    if(lines == null){
+                        lines = new LinkedListPOI<>();
+                        res.put(bookTitle , lines);
+                    
+                    }
+                    lines.add(lineNumber);
+            
+                }
+            
+            
+            }
+            
+            
+        }
+        
+        return res;
+    }
 }    
